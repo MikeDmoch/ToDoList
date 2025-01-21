@@ -18,5 +18,13 @@ namespace ToDoList.Models
 
         [ValidateNever]
         public string Category { get; set; } = null!;
+
+        [Required(ErrorMessage = "Please enter a status")]
+        public string StatusId { get; set; } = "";
+
+        [ValidateNever]
+        public Status Status { get; set; } = null!;
+
+        public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;
     }
 }
