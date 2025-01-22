@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Models
+﻿namespace ToDoListProject.Models
 {
     public class Category
     {
