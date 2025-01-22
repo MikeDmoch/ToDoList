@@ -6,27 +6,20 @@ namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ToDoListContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ToDoListContext context) => this.context = context;
+        
+        public IActionResult Index(string id)
         {
-            _logger = logger;
-        }
+            var filters = new Filters(id);
+            ViewBag.Filters = filters;
 
-        public IActionResult Index()
-        {
+            ViewBag.Categories = context.Categories.ToList();
+
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
