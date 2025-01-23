@@ -17,13 +17,13 @@ namespace ToDoListProject.Models
         public string CategoryId { get; set; } = "";
 
         [ValidateNever]
-        public string Category { get; set; } = null!;
+        public Category Category { get; set; } = null;
 
         [Required(ErrorMessage = "Please enter a status")]
         public string StatusId { get; set; } = "";
 
         [ValidateNever]
-        public Status Status { get; set; } = null!;
+        public Status Status { get; set; } = null;
 
         public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;
     }

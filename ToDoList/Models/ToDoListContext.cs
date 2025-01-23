@@ -6,10 +6,10 @@ namespace ToDoListProject.Models
     {
         public ToDoListContext(DbContextOptions<ToDoListContext> options) : base(options) { }
 
-        public DbSet<ToDoList> ToDoLists { get; set; } = null!;
+        public DbSet<ToDoList> ToDoLists { get; set; } = null;
 
-        public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<Status> Statuses { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null;
+        public DbSet<Status> Statuses { get; set; } = null;
 
         // seed data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
